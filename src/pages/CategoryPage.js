@@ -4,13 +4,15 @@
  * Shows all emails in a specific category with bulk actions
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import {
   FaArrowLeft,
   FaTrash,
   FaLink,
+  FaCheck,
+  FaSync,
 } from 'react-icons/fa';
 import * as api from '../services/api';
 
@@ -36,16 +38,9 @@ function CategoryPage() {
   const limit = 20;
 
   /**
-   * Load category and emails
+   * Load all data with useCallback to prevent infinite loops
    */
-  useEffect(() => {
-    loadData();
-  }, [categoryId, page]);
-
-  /**
-   * Load all data
-   */
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     try {
       setLoading(true);
 
@@ -81,7 +76,14 @@ function CategoryPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [categoryId, page, navigate]);
+
+  /**
+   * Load category and emails on mount or when loadData changes
+   */
+  useEffect(() => {
+    loadData();
+  }, [loadData]);
 
   /**
    * Toggle email selection
