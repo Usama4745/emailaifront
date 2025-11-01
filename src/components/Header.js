@@ -5,7 +5,7 @@
  */
 
 import React, { useState } from 'react';
-import { FaUser, FaSignOutAlt, FaChevronDown } from 'react-icons/fa';
+import { FaSignOutAlt, FaChevronDown } from 'react-icons/fa';
 
 function Header({ user, onLogout }) {
   const [showMenu, setShowMenu] = useState(false);

@@ -7,7 +7,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { FaPlus, FaSync, FaSignOutAlt, FaCog, FaUser } from 'react-icons/fa';
+import { FaPlus, FaSync,FaCog, FaUser } from 'react-icons/fa';
 import * as api from '../services/api';
 import { useAuth } from '../context/AuthContext';
 

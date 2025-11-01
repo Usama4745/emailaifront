@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaFolderOpen, FaHome, FaTrash } from 'react-icons/fa';
+import { FaHome } from 'react-icons/fa';
 
 function Sidebar({ categories, accounts, onDeleteCategory }) {
   const location = useLocation();
