@@ -11,8 +11,6 @@ import {
   FaArrowLeft,
   FaTrash,
   FaLink,
-  FaCheck,
-  FaSync,
 } from 'react-icons/fa';
 import * as api from '../services/api';
 

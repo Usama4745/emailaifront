@@ -4,7 +4,7 @@
  * Shows full email content with read-only view
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaArrowLeft, FaTrash } from 'react-icons/fa';
@@ -18,16 +18,9 @@ function EmailPage() {
   const [loading, setLoading] = useState(true);
 
   /**
-   * Load email
+   * Load email details with useCallback to prevent infinite loops
    */
-  useEffect(() => {
-    loadEmail();
-  }, [emailId]);
-
-  /**
-   * Load email details
-   */
-  const loadEmail = async () => {
+  const loadEmail = useCallback(async () => {
     try {
       setLoading(true);
       const response = await api.getEmail(emailId);
@@ -39,7 +32,14 @@ function EmailPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [emailId, navigate]);
+
+  /**
+   * Load email on mount or when emailId changes
+   */
+  useEffect(() => {
+    loadEmail();
+  }, [loadEmail]);
 
   /**
    * Handle delete email
