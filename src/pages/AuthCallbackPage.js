@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 function AuthCallbackPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { login, loading } = useAuth();
+  const { login } = useAuth();
 
   useEffect(() => {
     /**

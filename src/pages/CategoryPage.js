@@ -10,9 +10,7 @@ import { toast } from 'react-toastify';
 import {
   FaArrowLeft,
   FaTrash,
-  FaLink,
-  FaCheck,
-  FaSync,
+  FaLink
 } from 'react-icons/fa';
 import * as api from '../services/api';
 
