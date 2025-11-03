@@ -7,7 +7,7 @@
 import React from 'react';
 import { FaTimes, FaGoogle } from 'react-icons/fa';
 
-function AccountModal({ onClose }) {
+function AccountModal({ onClose, onSuccess }) {
   /**
    * Handle connect account - redirect to OAuth
    */
